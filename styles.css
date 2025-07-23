@@ -7,58 +7,27 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0e0e0e; /* Deep black background */
-  color: #f5f5f5; 
+  background-color: #0e0e0e;
+  color: #f5f5f5;
   scroll-behavior: smooth;
 }
 
 nav {
-  /* The nav bar stays in place on the screen even when you scroll. */
-  position: fixed; 
-  
+  position: fixed;
   top: 5%;
   right: 2rem;
   transform: translateY(-50%);
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  z-index: 1000;
 }
 
-
-.intro{
-  display: flex;
-  
-  margin-top: 5rem;
-  padding: 4rem 2rem;
-}
-.intro1{
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-}
-.leftcontainer{
-  padding-left: 4rem;
-  display: flex;
-  flex-direction: column;
-  
-  width: 50%;
-  /* background-color: #eeeaea; */
-}
-.rightcontainer{
-  align-items: flex-starts;
-  justify-content: center;
-  text-align: left;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  /* background-color: blanchedalmond; */
-}
 nav a {
   text-decoration: none;
   color: #999;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 nav a:hover {
@@ -66,7 +35,7 @@ nav a:hover {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,52 +43,58 @@ section {
   padding: 2rem;
 }
 
-.title {
-  width: 100%;
-  
-  
-  
-
-  
-  font-size: 48px;
-  font-weight: 700;
-  
-  
-  
-
-
+.intro {
+  display: flex;
+  margin-top: 5rem;
+  padding: 4rem 2rem;
+  flex-direction: column;
 }
 
-.image img{
-  width: 500px;
-  height: 500px;
-  border-radius: 1rem;
-  
-  
- 
-  
-  
+.intro1 {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.leftcontainer, .rightcontainer {
+  flex: 1 1 100%;
+  padding: 1rem;
+}
+
+.leftcontainer {
+  padding-left: 0;
+}
+
+.rightcontainer {
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  width: 100%;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .subtitle {
   text-align: left;
-  font-size: 44px;
+  font-size: 2rem;
   font-weight: 300;
- 
   max-width: 600px;
 }
-.description{
 
+.description {
   text-align: left;
-  font-size: 25px;
+  font-size: 1.25rem;
   font-weight: 300;
- 
-  
-
 }
 
 .button {
-  
   margin-top: 2rem;
   padding: 10px 20px;
   border: 0.5px solid whitesmoke;
@@ -127,44 +102,110 @@ section {
   cursor: pointer;
   font-weight: 500;
   transition: 0.3s;
-  color:antiquewhite;
+  color: antiquewhite;
 }
 
 .button:hover {
-  
   background: white;
-  color: rgb(0, 0, 0);
-  
-}
-.maincontainer{
-  display: flex;
-  
-  flex-direction: column;
- 
-  color: #f5f5f5; 
-  width: 100%;
-  height: 60%;
-}
-.projects{
-  display: flex;
-  flex-direction: column;
-  gap: 10rem;
+  color: #000;
 }
 
-a{
-  color:aqua;
-  
+.image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 1rem;
 }
-h3{
-  font-size: 35px;
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  color: #f5f5f5;
+  width: 100%;
+  height: auto;
 }
-.project{
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 2rem;
+}
+
+.project {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-p{
-  font-size: 30px;
+
+a {
+  color: aqua;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.25rem;
   font-weight: 300;
 }
 
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+  .intro1 {
+    flex-direction: row;
+  }
+
+  .leftcontainer, .rightcontainer {
+    flex: 1 1 50%;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.5rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: static;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  .intro {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
